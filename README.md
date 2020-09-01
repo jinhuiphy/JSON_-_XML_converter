@@ -12,3 +12,28 @@ Conversion of JSON to XML:
 Extract key between double quotes (XML element).
 Extract element content from JSON value.
 If value is not null, enclose JSON with <></>, else enclose within < />.
+
+## Update
+
+To deal with XML attributes, say that an attribute in JSON has `"@attribute_name": "attribute_value"` form.
+
+See the examples below:
+
+```html
+<element attribute1 = "attribute1_value" … attributeN= "attributeN_value">content</element>
+```
+
+This XML objects would be mapped to this JSON object:
+
+```json
+{
+    "element_name" :
+    {
+        "@attribute1" : "attribute1_value",
+
+        "@attributeN" : "attributeN_value",
+        "#element" : "content"
+    }
+}
+```
+
